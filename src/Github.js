@@ -4,7 +4,7 @@ class Github extends Component {
   render(){
     return(
       <div>
-        I am from Github fd
+        I am from Githubss fd
       </div>
     );
   }

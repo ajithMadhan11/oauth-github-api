@@ -6,15 +6,25 @@ class Header extends Component {
     onLogin(){
       this.props.onLogin();
     }
+    onLogout(){
+      this.props.onLogout();
+    }
 
   render(){
+    let statusBtn;
+    if(this.props.idToken ==''){
+      statusBtn=  <NavItem onClick={this.onLogin.bind(this)} href="#login">Login</NavItem>
+    }else{
+      statusBtn=  <NavItem onClick={this.onLogout.bind(this)} href="#login">Logout</NavItem>
+    }
     return(
+
       <Navbar bg="light">
           <Navbar.Brand href="#home">Github Searcher</Navbar.Brand>
           <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
               <Nav>
-            <NavItem onClick={this.onLogin.bind(this)} href="#login">Login</NavItem>
+                  {statusBtn}
             </Nav>
   </Navbar.Collapse>
       </Navbar>
